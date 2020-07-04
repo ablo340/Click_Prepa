@@ -1,29 +1,27 @@
-import React from 'react'
-import { StyleSheet, View, Button, Text, Alert, TouchableHighlight } from 'react-native'
+import * as React from 'react';
+import { StyleSheet, View, Text, Alert } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-class Home extends React.Component {
-    render(){
-        return (
-            <View style={styles.main_container}>
-                <TouchableOpacity onPress={() => Alert.alert('Pop up à propos')} underlayColor="white">
-                <View style={styles.button}>
-                    <Text style={styles.buttonText}>A propos</Text>
-                </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => Alert.alert('Simple Button pressed on Faire ta prepa')} underlayColor="white">
-                <View style={styles.button}>
-                    <Text style={styles.buttonText}>Faire une prepa</Text>
-                </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => Alert.alert('Simple Button pressed on Mes prepas')} underlayColor="white">
-                <View style={styles.button}>
-                    <Text style={styles.buttonText}>Mes prepas</Text>
-                </View>
-                </TouchableOpacity>
+function Home({ navigation }) {
+    return (
+        <View style={styles.main_container}>
+            <TouchableOpacity onPress={() => Alert.alert('Pop up à propos')} underlayColor="white">
+            <View style={styles.button}>
+                <Text style={styles.buttonText}>A propos</Text>
             </View>
-        )
-    }
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Make_prep')} underlayColor="white">
+            <View style={styles.button}>
+                <Text style={styles.buttonText}>Faire une prepa</Text>
+            </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert('Simple Button pressed on Mes prepas')} underlayColor="white">
+            <View style={styles.button}>
+                <Text style={styles.buttonText}>Mes prepas</Text>
+            </View>
+            </TouchableOpacity>
+        </View>
+    );
 }   
 
 const styles = StyleSheet.create({
